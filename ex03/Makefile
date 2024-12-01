@@ -1,9 +1,9 @@
-NAME = a.out
+NAME = Fixed_bsp
 
-SRC = main.cpp \
-      Fixed.cpp \
-      Point.cpp \
-      bsp.cpp
+SRC =	main.cpp \
+		Fixed.cpp \
+		Point.cpp \
+		bsp.cpp 
 
 OBJS_DIR = build
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRC:.cpp=.o))
@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(VC)$(NAME)$(END) compilation $(GREEN)OK$(END)"
 
-$(OBJS_DIR)/%.o : %.cpp Fixed.hpp Point.hpp bsp.hpp
+$(OBJS_DIR)/%.o : %.cpp Fixed.hpp Point.hpp
 	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
